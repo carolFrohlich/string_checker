@@ -1,0 +1,45 @@
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="templates/style.css">
+
+<div class="container">
+	<nav class="navbar navbar-dark">
+  <span class="navbar-brand mb-0 h1">String Checker</span>
+</nav>
+
+	<h4>Check if a string contains all 26 characters of the alphabet.</h4>
+
+	<div class="row">
+		<form method="post" >{% csrf_token %}
+	    {{ form.as_p  }}
+	    <input type="submit" value="Check String" class="btn btn-primary" />
+		</form>
+	</div>
+{{  answer }}
+
+
+	<p>Check these test strings or create your own strings.</p>
+
+	<div class="row">
+  		<div class="col-sm-6"><p>The quick brown fox jumps over a lazy dog.</p></div>
+  		<div class="col-sm-6">.col-sm-6</div>
+	</div>
+		<div class="row">
+  		<div class="col-sm-6">.col-sm-6</div>
+  		<div class="col-sm-6">.col-sm-6</div>
+	</div>
+
+</div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+
+
+
+
+
