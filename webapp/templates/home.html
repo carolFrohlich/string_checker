@@ -1,44 +1,64 @@
 {% load widget_tweaks %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="templates/style.css">
-
-<div class="container">
-	<nav class="navbar navbar-dark">
-  <span class="navbar-brand mb-0 h1">String Checker</span>
-</nav>
-
-	<h4>Check if a string contains all 26 characters of the alphabet.</h4>
-
-	<div class="row">
-		<form method="post" >{% csrf_token %}
-	    {{ form.as_p  }}
-	    <input type="submit" value="Check String" class="btn btn-primary" />
-		</form>
-	</div>
-{{  answer }}
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
 
-	<p>Check these test strings or create your own strings.</p>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 
-	<div class="row">
-  		<div class="col-sm-6"><p>The quick brown fox jumps over a lazy dog.</p></div>
-  		<div class="col-sm-6">.col-sm-6</div>
-	</div>
+    <title>Alpha String Checker</title>
+
+  </head>
+
+  <body>
+
+	<nav class="navbar navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">Alphabet String Checker</span>
+		<!-- <span class="navbar-brand mb-0 h1">String Checker</span> -->
+	</nav>
+
+	<div class="container">
+
+		<br>
+		<p>Verify that a string contains all 26 letters of the alphabet.</p>
+
 		<div class="row">
-  		<div class="col-sm-6">.col-sm-6</div>
-  		<div class="col-sm-6">.col-sm-6</div>
-	</div>
+			<form method="post" >{% csrf_token %}
+		    {{ form.as_p }}
+		    <input type="submit" value="Check String" class="btn btn-primary" />
+			</form>
+		</div>
 
-</div>
+	{% if answer %}
+	  <button type="button" class="btn btn-success">The string contains all 26 letters of the alphabet</button>
+	{% else %}
+	  <button type="button" class="btn btn-danger">The string does NOT contains all 26 letters of the alphabet.</button>
+	{% endif %}
 
-    <footer class="footer">
+
+
+		<p>Try these test strings:</p>
+
+		<ul>
+			<li> <b>The quick brown fox jumps over a lazy dog.</b> returns True. </li>
+			<li> <b>Now is the time for all good men to come to the aid of their country</b> returns True. </li>
+			<li> <b>Hello World, How are you? I'm Fine, Thanks!</b> returns False. </li>
+		</ul>
+
+
+
+<!--     <footer class="footer bg-dark">
       <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-white">© 2018 Caroline Seligman Froehlich, all rights reserved </span>
       </div>
-    </footer>
+    </footer> -->
 
+</body>
 
 
 
